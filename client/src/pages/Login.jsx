@@ -24,13 +24,15 @@ const Login = () => {
   }, [user, isSuccess, navigate, dispatch]);
 
   const initialValues = {
-    username: "",
+    email: "",
     password: "",
     rememberMe: false,
   };
 
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -92,20 +94,20 @@ const Login = () => {
                   >
                     <path
                       fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a1 1 0 01-1.44.8 6 6 0 01-2.317-5.043zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
                       clipRule="evenodd"
                     />
                   </svg>
                   <Field
-                    id="username"
-                    name="username"
-                    type="text"
+                    id="email"
+                    name="email"
+                    type="email"
                     className="bg-transparent w-full text-gray-200 focus:outline-none placeholder-gray-400"
-                    placeholder="username"
+                    placeholder="Email address"
                   />
                 </div>
                 <ErrorMessage
-                  name="username"
+                  name="email"
                   component="div"
                   className="text-red-400 text-xs mt-1"
                 />
@@ -130,7 +132,7 @@ const Login = () => {
                     name="password"
                     type="password"
                     className="bg-transparent w-full text-gray-200 focus:outline-none placeholder-gray-400"
-                    placeholder="password"
+                    placeholder="Password"
                   />
                 </div>
                 <ErrorMessage

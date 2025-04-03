@@ -62,6 +62,7 @@ exports.login = async (req, res) => {
   }
 
   const { email, password } = req.body;
+  console.log("Login attempt with email:", email); // Debugging line
 
   try {
     const user = await User.findOne({ email });
