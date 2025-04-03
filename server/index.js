@@ -9,7 +9,11 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors(true));
+app.use(
+  cors({
+    origin: true,
+  })
+);
 app.use(express.json());
 
 // Define routes
